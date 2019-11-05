@@ -1,14 +1,14 @@
 # AAA_market_segmentation
 market segmentation and recommendation model for AAA members
 
-# objectives
+# Objectives
 Provide a market segmentation of AAA members (or member households) that allows AAA Northeast to better serve their members.  They would use this analysis to:
-# outcomes
+# Outcomes
 - Better anticipate the needs of members.
 - Customize communications and offering to various segments.
 - Expend more effort driving acquisition and renewal of desirable members.
 
-# methodology
+# Methodology
 all the models mentioned in this project follow the same approach (if at all there's a difference in the approach, it will be mentioned accordingly)
 - Summarize data to the household level.
 - Divide data into training and validation sets.
