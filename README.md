@@ -18,3 +18,8 @@ all the models mentioned in this project follow the same approach (if at all the
 - Stage 6: Join training and validation sets. 
 - Stage 7: Score all the members that do not have the purchase of a product with the probability of purchase.  If they have purchased the product, score them a 1.  Score them on the likelihood of roadside usage and the expected cost (in the next 12 months).
 - Stage 8: Use model results to cluster/segment the members.  (Used a small number of clusters (4-6)).
+
+# Resources created:
+- Aurora tables
+- S3
+- Athena
