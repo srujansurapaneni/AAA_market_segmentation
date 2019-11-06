@@ -10,11 +10,11 @@ Provide a market segmentation of AAA members (or member households) that allows 
 
 # Methodology
 all the models mentioned in this project follow the same approach (if at all there's a difference in the approach, it will be mentioned accordingly)
-- Summarize data to the household level.
-- Divide data into training and validation sets.
-- Develop a series of “look-alike” models to determine the probability of purchasing each product.  
-- Validate models.
-- Develop models to predict the likelihood of using roadside service as well as the total cost of roadside usage.
-- Join training and validation sets. 
-- Score all the members that do not have the purchase of a product with the probability of purchase.  If they have purchased the product, score them a 1.  Score them on the likelihood of roadside usage and the expected cost (in the next 12 months).
-- Use model results to cluster/segment the members.  (Used a small number of clusters (4-6)).
+- Stage 1: Summarize data to the household level.
+- Stage 2: Divide data into training and validation sets.
+- Stage 3: Develop a series of “look-alike” models to determine the probability of purchasing each product.  
+- Stage 4: Validate models.
+- Stage 5: Develop models to predict the likelihood of using roadside service as well as the total cost of roadside usage.
+- Stage 6: Join training and validation sets. 
+- Stage 7: Score all the members that do not have the purchase of a product with the probability of purchase.  If they have purchased the product, score them a 1.  Score them on the likelihood of roadside usage and the expected cost (in the next 12 months).
+- Stage 8: Use model results to cluster/segment the members.  (Used a small number of clusters (4-6)).
