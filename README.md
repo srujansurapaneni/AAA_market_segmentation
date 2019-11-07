@@ -23,3 +23,24 @@ all the models mentioned in this project follow the same approach (if at all the
 - Aurora tables
 - S3
 - Athena
+
+# Various customer segments
+- Age Group
+- Gender
+- Parents
+- Credit Ranges
+- Dwelling type
+- Education
+- Home Owner
+- Income Range
+- Language
+- Mosaic
+- Occupation Type
+- Race
+- Right Dwelling Type
+- Car Manufacturer
+
+# Outreach type
+- Needs (ND)
+- Communications and Offerings (CO)
+- Renewal Opportunity (RO)
