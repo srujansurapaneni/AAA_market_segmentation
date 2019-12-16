@@ -1,0 +1,41 @@
+with temp_tab as (
+select 
+Household_Key                                                          , 
+max(ZIP5)                                 as zip5                      , 
+max(FSV_CMSI_Flag)                        as FSV_CMSI_Flag             , 
+max(FSV_Credit_Card_Flag)                 as FSV_Credit_Card_Flag      ,
+max(FSV_Deposit_Program_Flag)             as FSV_Deposit_Program_Flag  , 
+max(FSV_Home_Equity_Flag)                 as FSV_Home_Equity_Flag      , 
+max(FSV_ID_Theft_Flag)                    as FSV_ID_Theft_Flag         ,
+max(FSV_Mortgage_Flag)                    as FSV_Mortgage_Flag         , 
+max(INS_Client_Flag)                      as INS_Client_Flag           , 
+max(TRV_Globalware_Flag)                  as TRV_Globalware_Flag       ,
+max(coalesce(Length_Of_Residence,0))      as Length_Of_Residence       , 
+max(coalesce(NULLIF(income,''),'0'))                 as income                    , 
+max(coalesce(NULLIF(children,''),'No'))              as children                  ,  
+max(coalesce(ERS_ENT_Count_Year_1,0))     as ERS_ENT_Count_Year_1      ,
+max(coalesce(ERS_ENT_Count_Year_2,0))     as ERS_ENT_Count_Year_2      ,
+max(coalesce(ERS_ENT_Count_Year_3,0))     as ERS_ENT_Count_Year_3      ,
+max(coalesce(ERS_Member_Cost_Year_1,0))   as ERS_Member_Cost_Year_1    ,
+max(coalesce(ERS_Member_Cost_Year_2,0))   as ERS_Member_Cost_Year_2    ,
+max(coalesce(ERS_Member_Cost_Year_3,0))   as ERS_Member_Cost_Year_3    ,
+max(coalesce(NULLIF(Mosaic_Household,''),'Unknown')) as Mosaic_Household          ,
+max(coalesce(NULLIF(Mosaic_Global_Household,''),'Unknown')) as Mosaic_Global_Household ,
+max(coalesce(NULLIF(kcl_B_IND_MosaicsGrouping,''),'Unknown')) as kcl_B_IND_MosaicsGrouping , 
+max(coalesce(NULLIF(New_Mover_Flag,''),'N'))         as New_Mover_Flag            , 
+coalesce(NULLIF(Breakdown_City,''),'Unknwon')        as Breakdown_City            ,
+sum(coalesce(Basic_Cost,0))               as Basic_Cost                , 
+max(coalesce(NULLIF(Clearing_Code_Last_Description,''),'Unknown')) as Clearing_Code_Last_Description ,  
+max(coalesce(NULLIF(Motorcycle_Indicator,''),'N'))   as Motorcycle_Indicator      ,
+sum(coalesce(Plus_Cost,0))                as Plus_Cost                 , 
+sum(coalesce(Premier_Cost,0))             as Premier_Cost              , 
+max(coalesce(NULLIF(Prob1_Code_Description,''),'Unknown')) as Prob1_Code_Description ,
+max(coalesce(NULLIF(SC_Vehicle_Manufacturer_Name,''),'Unknown')) as SC_Vehicle_Manufacturer_Name , 
+max(coalesce(NULLIF(SC_Vehicle_Model_Name,''),'Unknown')) as SC_Vehicle_Model_Name ,
+sum(coalesce(Total_Cost,0))               as Total_Cost
+from member_raw mr
+group by Household_Key ,
+         Breakdown_City
+)
+insert into household_level
+select * from temp_tab;
