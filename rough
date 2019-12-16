@@ -1,0 +1,48 @@
+with temp_tab as (
+select 
+Household_Key                                                    , 
+max(ZIP5)                            as zip5                      , 
+max(FSV_CMSI_Flag)                   as FSV_CMSI_Flag             , 
+max(FSV_Credit_Card_Flag)            as FSV_Credit_Card_Flag      ,
+max(FSV_Deposit_Program_Flag)        as FSV_Deposit_Program_Flag  , 
+max(FSV_Home_Equity_Flag)            as FSV_Home_Equity_Flag      , 
+max(FSV_ID_Theft_Flag)               as FSV_ID_Theft_Flag         ,
+max(FSV_Mortgage_Flag)               as FSV_Mortgage_Flag         , 
+max(INS_Client_Flag)                 as INS_Client_Flag           , 
+max(TRV_Globalware_Flag)             as TRV_Globalware_Flag       ,
+max(coalesce(Length_Of_Residence,0)) as Length_Of_Residence       , 
+max(coalesce(Income,'0'))            as Income                    , 
+max(coalesce(Children,'No'))         as Children                  ,  
+coalesce(ERS_ENT_Count_Year_1,0)
+coalesce(ERS_ENT_Count_Year_2,0)
+coalesce(ERS_ENT_Count_Year_3,0)
+coalesce(ERS_Member_Cost_Year_1,0) 
+coalesce(ERS_Member_Cost_Year_2,0)
+coalesce(ERS_Member_Cost_Year_3,0) 
+Member_Tenure_Years, 
+Opt_Out_Publication,
+Mosaic_Household, 
+Mosaic_Global_Household,
+kcl_B_IND_MosaicsGrouping, 
+New_Mover_Flag, 
+Breakdown_City,
+Basic_Cost, 
+Calculated_Tow_Miles, 
+Call_Canceled, 
+Call_Killed,
+Cash_Call, 
+Clearing_Code_Last_Description, 
+Fleet_Indicator,
+Is_Duplicate, 
+Is_NSR, 
+Member_Match_Flag, 
+Motorcycle_Indicator,
+Plus_Cost, 
+Premier_Cost, 
+Prob1_Code_Description,
+SC_Vehicle_Manufacturer_Name, 
+SC_Vehicle_Model_Name,
+Total_Cost
+from member_raw mr
+)
+select count(*) as cnt from temp_tab;
